@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #fff;
+    text-align: center;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px #ccc;
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #4b4949;
+}
+
+.add-item-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 6px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #0056b3;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background .3s;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+thead {
+    color: #fff;
+}
+
+th {
+    background-color: #007bff;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(even) {
+    background-color: #e6f0ff;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+}

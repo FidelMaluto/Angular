@@ -13,6 +13,8 @@ export class CalculadoraComponent {
 
     calcularResultado(){
       console.log('Chamando a função da soma!');
+      console.log('Valor 1: ', this.num1);
+      console.log('Valor 2: ', this.num2);
       this.resultado = this.num1 + this.num2;
     }
 }

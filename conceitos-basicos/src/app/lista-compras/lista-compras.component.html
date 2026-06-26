@@ -13,16 +13,17 @@
             <th></th>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Computador</td>
+            @for (elemento of lista; track elemento.id) {
+                <tr>
+                <td>{{ elemento.id }}</td>
+                <td>{{ elemento.nome }}</td>
                 <td><input type="checkbox" /></td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>PC</td>
-                <td><input type="checkbox" /></td>
-            </tr>
+            } @empty {
+                <tr colspan="4">
+                    Nenhum item adicionado.
+                </tr>
+            }
         </tbody>
     </table>
     

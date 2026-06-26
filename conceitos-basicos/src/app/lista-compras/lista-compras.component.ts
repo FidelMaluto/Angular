@@ -10,7 +10,7 @@ import { ListaItem } from './lista-item';
 })
 export class ListaComprasComponent {
 
-  item: String = '';
+  item: string = '';
   lista: ListaItem[] = [];
 
   adicionarItem(){

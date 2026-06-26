@@ -1,8 +1,8 @@
 <div class="container">
     <h1>Lista de Compras</h1>
 
-    <form class="add-item-form">
-        <input type="text" id="item" placeholder="Nome do item" />
+    <form #frm="ngForm" class="add-item-form" (ngSubmit)="adicionarItem()">
+        <input type="text" id="item" name="item" [(ngModel)]="item" placeholder="Nome do item" />
         <button type="submit">Adicionar</button>
     </form>
 

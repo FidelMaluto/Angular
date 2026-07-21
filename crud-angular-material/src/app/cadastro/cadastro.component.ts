@@ -4,6 +4,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-cadastro',
@@ -12,7 +14,9 @@ import { FormsModule } from '@angular/forms';
     MatCardModule, 
     FormsModule, 
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule
   ],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.scss'

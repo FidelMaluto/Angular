@@ -10,6 +10,7 @@ export class ClienteService {
   
   constructor() { }
 
+  // Salvar ou cadastrar clientes
   salvar(cliente: Cliente) {
     const storage = this.obterStorage();
     storage.push(cliente);
@@ -17,7 +18,13 @@ export class ClienteService {
     localStorage.setItem(ClienteService.REPO_CLIENTES, JSON.stringify(storage))
   }
 
-  obterStorage() : Cliente[] {
+  // Pesquisar clientes
+  pesquisarClientes(nome: string) : Cliente[] {
+    return this.obterStorage();
+  }
+
+  // Guardar os dados no localStorage
+  private obterStorage() : Cliente[] {
     const repoClientes = localStorage.getItem(ClienteService.REPO_CLIENTES);
 
     if(repoClientes) {

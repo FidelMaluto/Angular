@@ -10,7 +10,7 @@
                         <div fxLayout="column" fxFlex="950px">
                             <mat-form-field class="full-width">
                                 <mat-label>Nome:</mat-label>
-                                <input type="text" placeholder="Ex: Fidel" matInput> 
+                                <input type="text" placeholder="Ex: Fidel" matInput>
                             </mat-form-field>
                         </div>
                     </div>
@@ -23,5 +23,50 @@
                 </mat-card-actions>
             </mat-card>
         </form>
+    </div>
+</div>
+
+<!-- Table -->
+<div fxLayout="row" fxLayoutAlign="center" class="mt-20">
+    <div fxLayout="column" fxFlex="1000px">
+        <mat-card appearance="outlined">
+            <mat-card-header>
+                <mat-card-title>Resultado</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+
+                <table mat-table [dataSource]="listaClintes" class="mat-shadow-2">
+
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef> ID </th>
+                        <td mat-cell *matCellDef="let cliente"> {{cliente.id}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="nome">
+                        <th mat-header-cell *matHeaderCellDef> Nome </th>
+                        <td mat-cell *matCellDef="let cliente"> {{cliente.nome}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="cpf">
+                        <th mat-header-cell *matHeaderCellDef> CPF </th>
+                        <td mat-cell *matCellDef="let cliente"> {{cliente.cpf}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="dataNascimento">
+                        <th mat-header-cell *matHeaderCellDef> Data Nascimento </th>
+                        <td mat-cell *matCellDef="let cliente"> {{cliente.dataNascimento}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef> E-mail </th>
+                        <td mat-cell *matCellDef="let cliente"> {{cliente.email}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="colunasTable"></tr>
+                    <tr mat-row *matRowDef="let row; columns: colunasTable;"></tr>
+                </table>
+
+            </mat-card-content>
+        </mat-card>
     </div>
 </div>

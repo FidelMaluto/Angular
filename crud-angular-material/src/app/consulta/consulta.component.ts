@@ -51,7 +51,7 @@ export class ConsultaComponent implements OnInit {
   }
 
   preparaEdicao(id : string) {
-    this.router.navigate(['cadastro'], { queryParams : {'id' : id}})
+    this.router.navigate(['cadastro'], { queryParams : {'id' : id}});
   }
   
 }

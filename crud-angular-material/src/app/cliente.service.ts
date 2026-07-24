@@ -32,6 +32,12 @@ export class ClienteService {
     
   }
 
+  // Retornar os dados do id do cliente
+  buscarClientePorId(id: string) : Cliente | undefined {
+    const clientes = this.obterStorage();
+    return clientes.find(cliente => cliente.id === id)
+  }
+
   // Guardar os dados no localStorage
   private obterStorage() : Cliente[] {
     const repoClientes = localStorage.getItem(ClienteService.REPO_CLIENTES);

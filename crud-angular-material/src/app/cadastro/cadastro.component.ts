@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Cliente } from './cliente';
@@ -14,16 +15,16 @@ import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 @Component({
   selector: 'app-cadastro',
   imports: [
-    FlexLayoutModule, 
-    MatCardModule, 
-    FormsModule, 
+    FlexLayoutModule,
+    MatCardModule,
+    FormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
     NgxMaskDirective
   ],
-  providers : [
+  providers: [
     provideNgxMask()
   ],
   templateUrl: './cadastro.component.html',
@@ -33,6 +34,7 @@ export class CadastroComponent implements OnInit {
 
   cliente: Cliente = Cliente.newCliente();
   atualizando: boolean = false;
+  snack: MatSnackBar = inject(MatSnackBar);
 
   constructor(
     private service: ClienteService,
@@ -47,24 +49,30 @@ export class CadastroComponent implements OnInit {
       const params = query['params'];
       const id = params['id'];
 
-      if(id) {
+      if (id) {
         let clienteEncontrado = this.service.buscarClientePorId(id);
-        if(clienteEncontrado) {
+        if (clienteEncontrado) {
           this.atualizando = true;
           this.cliente = clienteEncontrado;
         }
       }
     })
   }
-  
-  salvar(){
-    if(!this.atualizando) {
+
+  salvar() {
+    if (!this.atualizando) {
       this.service.salvar(this.cliente);
       this.cliente = Cliente.newCliente();
+      this.mostraMensagem('Cadastrado com sucesso!');
     } else {
       this.service.atualizar(this.cliente);
       this.router.navigate(['consulta']);
+      this.mostraMensagem('Atualizado com sucesso!');
     }
+  }
+
+  mostraMensagem(mensagem: string) {
+    this.snack.open(mensagem, 'OK');
   }
 
 }

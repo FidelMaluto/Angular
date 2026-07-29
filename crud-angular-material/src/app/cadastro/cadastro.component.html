@@ -53,7 +53,7 @@
                         <div fxLayout="column" fxFlex="600px">
                             <mat-form-field class="full-width">
                                 <mat-label>UF: *</mat-label>
-                                <mat-select (selectionChange)="carregarMunicipios($event)">
+                                <mat-select [(value)]="cliente.uf" (selectionChange)="carregarMunicipios($event)">
                                     <mat-option *ngFor="let uf of estados" [value]="uf.nome">
                                         {{uf.nome}} - {{uf.sigla}}
                                     </mat-option>
@@ -66,7 +66,7 @@
                         <div fxLayout="column" fxFlex="600px">
                             <mat-form-field class="full-width">
                                 <mat-label>Município: *</mat-label>
-                                <mat-select [(value)]="">
+                                <mat-select [(value)]="cliente.municipio">
                                     <mat-option *ngFor="let m of municipios" [value]="m.nome">
                                         {{m.nome}}
                                     </mat-option>

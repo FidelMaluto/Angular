@@ -61,6 +61,10 @@ export class CadastroComponent implements OnInit {
         if (clienteEncontrado) {
           this.atualizando = true;
           this.cliente = clienteEncontrado;
+          if(this.cliente.uf){
+            const event = { value: this.cliente.uf };
+            this.carregarMunicipios(event as MatSelectChange);
+          }
         }
       }
     })

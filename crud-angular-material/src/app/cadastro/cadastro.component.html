@@ -54,8 +54,8 @@
                             <mat-form-field class="full-width">
                                 <mat-label>UF: *</mat-label>
                                 <mat-select [(value)]="cliente.uf" (selectionChange)="carregarMunicipios($event)">
-                                    <mat-option *ngFor="let uf of estados" [value]="uf.nome">
-                                        {{uf.nome}} - {{uf.sigla}}
+                                    <mat-option *ngFor="let uf of estados" [value]="uf.sigla">
+                                       {{uf.nome}} - {{uf.sigla}}
                                     </mat-option>
                                 </mat-select>
                             </mat-form-field>

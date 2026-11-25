@@ -15,7 +15,7 @@
         class="w-full p-3 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:ring-blue-400"
         required
       />
-      <span class="text-red-500 text-sm"> Campo Obrigatório </span>
+      <span class="text-red-500 text-sm" *ngIf="isCampoInvalido('nome')"> Campo Obrigatório </span>
     </div>
 
     <!-- Campo descrição -->
@@ -30,7 +30,7 @@
         class="w-full p-3 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:ring-blue-400"
         required
       ></textarea>
-      <span class="text-red-500 text-sm"> Campo Obrigatório </span>
+      <span class="text-red-500 text-sm" *ngIf="isCampoInvalido('descricao')"> Campo Obrigatório </span>
     </div>
 
     <button
